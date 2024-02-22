@@ -1,9 +1,12 @@
 package com.ecommerTest.model;
 
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
+@Entity
 public class Producto {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nombre;
     private String descripcion;
@@ -18,7 +21,7 @@ public class Producto {
 
     }
 
-    public Producto(Integer id, String nombre, String descripcion, String imagen, double precio, int cantidad) {
+    public Producto(Integer id, String nombre, String descripcion, String imagen, double precio, int cantidad, Usuario usuario) {
         super();
         this.id = id;
         this.nombre = nombre;
@@ -26,6 +29,7 @@ public class Producto {
         this.imagen = imagen;
         this.precio = precio;
         this.cantidad = cantidad;
+        this.usuario = usuario;
     }
 
     public Integer getId() {
